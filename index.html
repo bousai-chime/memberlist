@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>防災無線チャイムの世界 メンバー紹介</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #3498db;
+            --leader-color: #f1c40f;
+            --leader-bg: #fffcf5;
+            --leader-border: #f39c12;
+            --bg-color: #f0f2f5;
+            --text-color: #333;
+        }
+
+        body {
+            font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 40px 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        h1 {
+            color: var(--primary-color);
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #666;
+            font-size: 1rem;
+        }
+
+        /* グリッドレイアウト */
+        .member-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        /* カードデザイン */
+        .card {
+            background: #fff;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.2s, box-shadow 0.2s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+        }
+
+        /* アイコン画像 */
+        .avatar-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #f0f0f0;
+            background-color: #ddd;
+        }
+
+        /* テキスト情報 */
+        .info {
+            text-align: center;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .name {
+            font-size: 1.4rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: var(--primary-color);
+        }
+
+        .area-label {
+            font-size: 0.75rem;
+            background-color: #e8f4fd;
+            color: var(--accent-color);
+            padding: 3px 10px;
+            border-radius: 20px;
+            display: inline-block;
+            margin-bottom: 10px;
+            font-weight: bold;
+            align-self: center;
+        }
+
+        .area-text {
+            font-size: 0.9rem;
+            color: #555;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .comment {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 20px;
+            white-space: pre-wrap; /* 改行をそのまま表示 */
+            text-align: left;
+            line-height: 1.5;
+        }
+
+        /* SNSリンクボタン */
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: auto; /* 下部に固定 */
+            flex-wrap: wrap;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+        }
+
+        .social-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            text-decoration: none;
+            color: white;
+            transition: opacity 0.2s;
+            font-size: 1.2rem;
+            position: relative;
+        }
+
+        .social-btn:hover {
+            opacity: 0.8;
+        }
+        
+        .social-btn svg {
+            width: 18px;
+            height: 18px;
+            fill: currentColor;
+        }
+
+        .btn-x { background-color: #000; }
+        .btn-youtube { background-color: #ff0000; }
+        .btn-web { background-color: #7f8c8d; }
+        .btn-hp { background-color: #27ae60; } /* 公式HP用 */
+
+        /* 地蔵さん特別スタイル (リーダー) */
+        .card.leader {
+            border: 3px solid var(--leader-border);
+            background-color: var(--leader-bg);
+            grid-column: 1 / -1; 
+        }
+
+        /* スマホ以外（PC/タブレット）ではリーダーを横長レイアウトにする設定 */
+        @media (min-width: 768px) {
+            .card.leader {
+                flex-direction: row;
+                text-align: left;
+                align-items: flex-start;
+            }
+            .card.leader .avatar-container {
+                width: auto;
+                margin-right: 30px;
+                margin-bottom: 0;
+            }
+            .card.leader .avatar {
+                width: 150px;
+                height: 150px;
+                border-color: var(--leader-color);
+            }
+            .card.leader .info {
+                text-align: left;
+                display: block;
+            }
+            .card.leader .area-label {
+                align-self: flex-start; /* 左寄せ */
+                margin-left: 0;
+            }
+            .card.leader .social-links {
+                justify-content: flex-start;
+                border-top: none;
+                padding-top: 0;
+            }
+        }
+
+        .leader-badge {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background-color: var(--leader-color);
+            color: #fff;
+            padding: 5px 40px;
+            transform: rotate(45deg) translate(28px, -10px);
+            font-weight: bold;
+            font-size: 0.9rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            z-index: 10;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>防災無線チャイムの世界</h1>
+        <div class="subtitle">メンバー紹介一覧</div>
+    </header>
+
+    <div class="member-grid">
+
+        <div class="card leader">
+            <div class="leader-badge">LEADER</div>
+            <div class="avatar-container">
+                <img src="https://drive.google.com/thumbnail?id=1Q7DwufPcorqaOzJZgeoqg_TboXg-ryI-&sz=w400" alt="地蔵" class="avatar">
+            </div>
+            <div class="info">
+                <div class="name">地蔵 <span style="font-size:0.8em; font-weight:normal; color:#666;">(防災無線チャイムの世界代表)</span></div>
+                <div class="area-label">担当エリア</div>
+                <div class="area-text">関東全域，静岡，九州沖縄地方全域</div>
+                <div class="comment">埼玉県を中心に防災無線チャイムの収録を行ってます。
+
+【メディア出演】
+・沼にハマってきいてみた「防災無線チャイム沼」
+・マニア区チャンネル「いざという時に助かる知識！」
+・マツコの知らない世界「防災無線チャイムの世界」</div>
+                <div class="social-links">
+                    <a href="https://x.com/jizo_chime" target="_blank" class="social-btn btn-x" title="X (Twitter)">
+                        <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg>
+                    </a>
+                    <a href="https://youtube.com/@jizo_chime?si=DGkvvs5Ubv30L8QT" target="_blank" class="social-btn btn-youtube" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="https://www.tbs.co.jp/matsuko-sekai/archive/202511252/" target="_blank" class="social-btn btn-web" title="Media Info"><i class="fa-solid fa-tv"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="avatar-container">
+                <img src="https://drive.google.com/thumbnail?id=1vnyi3AH5EeniM4DuzysZ6uN4Lgwd66s_&sz=w400" alt="越後時報" class="avatar">
+            </div>
+            <div class="info">
+                <div class="name">越後時報</div>
+                <div class="area-label">担当エリア</div>
+                <div class="area-text">新潟県，山形県，福島県，秋田県</div>
+                <div class="comment">宮城県・新潟県を拠点に活動中。今後は東北全域を追いかけていきたいです！</div>
+                <div class="social-links">
+                    <a href="https://x.com/Niigata_Chime" target="_blank" class="social-btn btn-x">
+                        <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg>
+                    </a>
+                    <a href="https://www.youtube.com/@Niigata_Chime" target="_blank" class="social-btn btn-youtube"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="avatar-container">
+                <img src="https://drive.google.com/thumbnail?id=1dDkwDeDvuPDf0IK-OO1VP8QjQu1FWKNP&sz=w400" alt="あおさ" class="avatar">
+            </div>
+            <div class="info">
+                <div class="name">あおさ</div>
+                <div class="area-label">担当エリア</div>
+                <div class="area-text">和歌山県，奈良県</div>
+                <div class="comment">静岡県を中心に活動しています。よろしくお願いします。</div>
+                <div class="social-links">
+                    <a href="https://x.com/yukibo_taru" target="_blank" class="social-btn btn-x">
+                        <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg>
+                    </a>
+                    <a href="https://www.youtube.com/@yukibo_taru" target="_blank" class="social-btn btn-youtube"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="avatar-container">
+                <img src="https://drive.google.com/thumbnail?id=1cOasaS4Pz8CwlbCSxeA2X4GY9XMtiJaJ&sz=w400" alt="channel 防災無線" class="avatar">
+            </div>
+            <div class="info">
+                <div class="name">channel 防災無線</div>
+                <div class="area-label">担当エリア</div>
+                <div class="area-text">北海道，岩手県，宮城県，福井県，岐阜県，愛知県，三重県，滋賀県</div>
+                <div class="comment">東海地方をはじめとする各地の鳴動表の作成や，防災無線による音風景の取材を担当しています．</div>
+                <div class="social-links">
+                    <a href="https://x.com/channel_bousai" target="_blank" class="social-btn btn-x">
+                        <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg>
+                    </a>
+                    <a href="https://www.youtube.com/channel/UCfMV8YlCB6nwVB6WAAMlwSA" target="_blank" class="social-btn btn-youtube"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="https://sites.google.com/view/radiotower-gifu/home" target="_blank" class="social-btn btn-web"><i class="fa-solid fa-globe"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="avatar-container">
+                <img src="https://drive.google.com/thumbnail?id=1nn4q4ffAhfrqTN2ubX23KRZ10UAfadAR&sz=w400" alt="わかけん" class="avatar">
+            </div>
+            <div class="info">
+                <div class="name">わかけん</div>
+                <div class="area-label">担当エリア</div>
+                <div class="area-text">中国地方西部，四国地方</div>
+                <div class="comment">東海地方在住ですが縁あって中国地方の一部と四国地方の鳴動表の作成を担当しています。</div>
+                <div class="social-links">
+                    <a href="https://x.com/kwaka16?t=skffAKGSg32isFkdT3i_UA&s=09" target="_blank" class="social-btn btn-x">
+                        <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg>
+                    </a>
+                    <a href="https://youtube.com/@wakaken-chime?si=q821ryfM57u2adPw" target="_blank" class="social-btn btn-youtube"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="avatar-container">
+                <img src="https://drive.google.com/thumbnail?id=14XEsRC_TxFQUu_C61xmHd2QXIgtWEm1n&sz=w400" alt="toapd2022" class="avatar">
+            </div>
+            <div class="info">
+                <div class="name">toapd2022</div>
+                <div class="area-label">担当エリア</div>
+                <div class="area-text">兵庫県</div>
+                <div class="comment">兵庫県の鳴動表担当 toapd2022です。現在は，福島県を中心に防災無線チャイム収録などの活動をしています。
+
+【メディア出演】
+・テレビ朝日「ナニコレ珍百景」(2023/7/30)
+・TBS「イキスギさんについてった」(2023/8/1)
+・TBS「THE TIME, 中高生ニュース」(2023/11/21)</div>
+                <div class="social-links">
+                    <a href="https://x.com/himarin015" target="_blank" class="social-btn btn-x">
+                        <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg>
+                    </a>
+                    <a href="https://www.youtube.com/@toapd2017_Hiro" target="_blank" class="social-btn btn-youtube"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="https://toapd2022.github.io/toapd2022/" target="_blank" class="social-btn btn-hp" title="公式HP"><i class="fa-solid fa-house"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="avatar-container">
+                <img src="https://drive.google.com/thumbnail?id=12IGUcPFHhpfyAD3fgGCUi7WbfT6L8-_x&sz=w400" alt="同報おおさか" class="avatar">
+            </div>
+            <div class="info">
+                <div class="name">同報おおさか</div>
+                <div class="area-label">担当エリア</div>
+                <div class="area-text">大阪・京都</div>
+                <div class="comment">大阪と京都を担当しています。最近は軽音サークルでバンドしてます(^^)</div>
+                <div class="social-links">
+                    <a href="https://x.com/osaka_dpradio" target="_blank" class="social-btn btn-x">
+                        <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="avatar-container">
+                <img src="https://drive.google.com/thumbnail?id=15DBgCKEjgiSmsL-EeXN_KZU9sxBf_7i2&sz=w400" alt="とやま時報" class="avatar">
+            </div>
+            <div class="info">
+                <div class="name">とやま時報</div>
+                <div class="area-label">担当エリア</div>
+                <div class="area-text">富山県，石川県</div>
+                <div class="comment">富山県を中心に防災行政無線チャイムを収録しています。</div>
+                <div class="social-links">
+                    <a href="https://x.com/toyamajiho" target="_blank" class="social-btn btn-x">
+                        <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg>
+                    </a>
+                    <a href="https://www.youtube.com/@toyamajiho" target="_blank" class="social-btn btn-youtube"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="avatar-container">
+                <img src="https://drive.google.com/thumbnail?id=1a17tUIcAesarly0K3BmvV2h3tpeXLeQZ&sz=w400" alt="JVG" class="avatar">
+            </div>
+            <div class="info">
+                <div class="name">JVG</div>
+                <div class="area-label">担当エリア</div>
+                <div class="area-text">岡山県，鳥取県</div>
+                <div class="comment">よろしくお願いいたします</div>
+                <div class="social-links">
+                    <a href="https://x.com/gckitgki" target="_blank" class="social-btn btn-x">
+                        <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg>
+                    </a>
+                    <a href="https://www.youtube.com/@gckitgki" target="_blank" class="social-btn btn-youtube"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>
